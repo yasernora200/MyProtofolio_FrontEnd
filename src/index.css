@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased transition-colors duration-300;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .dark body {
+    @apply bg-dark-bg text-dark-text;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+  
+  .glass {
+    @apply bg-white/70 dark:bg-dark-card/70 backdrop-blur-md border border-slate-200 dark:border-slate-700;
+  }
+  
+  .section-padding {
+    @apply py-20 px-6 md:px-12 lg:px-24;
+  }
+  
+  .container {
+    @apply max-w-[1300px] w-full mx-auto;
+  }
+  
+  .element-center {
+    @apply flex justify-center items-center;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
