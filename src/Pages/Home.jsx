@@ -77,7 +77,7 @@ const Home = () => {
                 </Button>
               </Link>
               
-              <a href="/cv.pdf" download>
+              <a href="/assets/cv.pdf" download>
                 <Button variant="outline" className="flex items-center gap-2">
                   Download CV <Download size={18} />
                 </Button>
