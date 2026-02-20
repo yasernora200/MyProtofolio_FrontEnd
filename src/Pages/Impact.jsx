@@ -51,7 +51,7 @@ const Impact = () => {
           <div className="grid grid-cols-2 gap-8 md:gap-12 bg-white/5 p-8 rounded-3xl backdrop-blur-sm border border-white/10">
             <Stat icon={Trophy} value="10+" label="Projects Completed" delay={0} />
             <Stat icon={Users} value="5+" label="Happy Clients" delay={0.1} />
-            <Stat icon={Code2} value="3+" label="Years Experience" delay={0.2} />
+            <Stat icon={Code2} value="2+" label="Years Experience" delay={0.2} />
             <Stat icon={Coffee} value="∞" label="Commitment" delay={0.3} />
           </div>
         </div>

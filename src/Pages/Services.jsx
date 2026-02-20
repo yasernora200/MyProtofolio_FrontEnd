@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Section from "../components/Section";
-import { Code2, Database, Video, Brain } from "lucide-react";
+import { Code2, Globe, Zap, Video, MonitorSmartphone } from "lucide-react";
 
 const ServiceCard = ({ icon: Icon, title, description, delay }) => (
   <motion.div
@@ -26,22 +26,22 @@ const Services = () => {
     {
       icon: Code2,
       title: "Web Development",
-      description: "Building responsive, high-performance web applications using modern technologies like React, TailwindCSS, and Next.js.",
+      description: "Developing robust and scalable web applications using React.js and Next.js, focusing on clean architecture and maintainability.",
     },
     {
-      icon: Database,
-      title: "Data Engineering",
-      description: "Architecting scalable data pipelines, ETL processes, and utilizing Big Data technologies like Apache Spark and Kafka.",
+      icon: MonitorSmartphone,
+      title: "Responsive UI Development",
+      description: "Crafting pixel-perfect, mobile-first interfaces that work seamlessly across all screen sizes and browsers.",
     },
     {
-      icon: Brain,
-      title: "AI & Machine Learning",
-      description: "Developing intelligent models for computer vision and data analysis to derive actionable insights.",
+      icon: Zap,
+      title: "Performance Optimization",
+      description: "Improving web vitals, implementing lazy loading, and optimizing code to ensure lightning-fast user experiences.",
     },
     {
-      icon: Video,
-      title: "Tech Education",
-      description: "Creating comprehensive educational content and tutorials to simplify complex technical concepts for learners.",
+      icon: Globe,
+      title: "API Integration",
+      description: "Seamlessly connecting front-end interfaces with RESTful APIs and GraphQL for dynamic, data-driven applications.",
     },
   ];
 
@@ -50,7 +50,7 @@ const Services = () => {
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">What I Offer</h2>
         <p className="text-slate-500 dark:text-dark-muted text-lg max-w-2xl mx-auto">
-          Combining technical expertise with creative problem-solving to deliver exceptional results.
+          Delivering high-quality digital solutions with a focus on clean code, performance, and user satisfaction.
         </p>
       </div>
 

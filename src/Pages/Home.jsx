@@ -3,6 +3,8 @@ import { Link } from "react-scroll";
 import { ArrowRight, Download, Mail, Github, Linkedin } from "lucide-react";
 import { Button } from "../components/Button";
 import { useState, useEffect } from "react";
+import profileImg from "/assets/professNora.png";
+
 
 const TypeWriter = ({ text, delay, infinite }) => {
   const [currentText, setCurrentText] = useState("");
@@ -21,7 +23,7 @@ const TypeWriter = ({ text, delay, infinite }) => {
       timeout = setTimeout(() => {
         setCurrentIndex(0);
         setCurrentText("");
-      }, 2000); // Wait 2s before restarting
+      }, 2000); 
     }
 
     return () => clearTimeout(timeout);
@@ -54,18 +56,18 @@ const Home = () => {
             </h1>
             
             <div className="h-8 mb-6 flex items-center">
-               <span className="text-xl md:text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                 <TypeWriter text="Data Engineer | Frontend Developer" delay={100} infinite />
-               </span>
-               <span className="w-0.5 h-6 bg-primary ml-1 animate-blink"></span>
+                <span className="text-xl md:text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                  <TypeWriter text="Frontend Developer | React Developer" delay={100} infinite />
+                </span>
+                <span className="w-0.5 h-6 bg-primary ml-1 animate-blink"></span>
             </div>
 
             <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-200 mb-6 font-medium">
-              Turning raw data into <span className="text-secondary font-bold">real-world impact</span>.
+              Building <span className="text-secondary font-bold">high-performance web applications</span> with clean, scalable code.
             </p>
 
             <p className="text-lg text-slate-600 dark:text-dark-muted max-w-lg leading-relaxed mb-8">
-              I engineer scalable data systems and craft modern web applications that make intelligence usable.
+              I specialize in transforming complex requirements into functional, responsive, and interactive web experiences using modern JavaScript frameworks.
             </p>
           
             <div className="flex flex-wrap gap-4">
@@ -125,27 +127,33 @@ const Home = () => {
            transition={{ duration: 0.8, delay: 0.2 }}
            className="order-1 md:order-2 flex justify-center md:justify-end relative"
         >
+          {/* Wrapper for image + badges — no overflow-hidden here */}
           <div className="relative w-72 h-72 md:w-96 md:h-96">
-            <div className="absolute inset-4 bg-gradient-to-tr from-primary to-secondary rounded-full opacity-20 blur-2xl animate-pulse-slow"></div>
-            <img 
-              src="/assets/profile.jpg" 
-              alt="Nourhan Yasser" 
-              className="relative w-full h-full object-cover rounded-full border-4 border-white dark:border-slate-800 shadow-2xl object-[center_20%]"
-            />
-            
-            {/* Floating Badges */}
+
+            {/* Circular image container */}
+            <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
+              <div className="absolute inset-4 bg-gradient-to-tr from-primary to-secondary rounded-full opacity-20 blur-2xl animate-pulse-slow"></div>
+              <img 
+                src={profileImg} 
+                alt="Nourhan Yasser" 
+                className="w-full h-full object-cover object-[center_16%]"
+              />
+            </div>
+
+            {/* 💻 Badge — top right, outside circle */}
             <motion.div 
               animate={{ y: [-10, 10, -10] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-0 right-0 bg-white dark:bg-dark-card p-4 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700"
+              className="absolute -top-4 -right-4 bg-white dark:bg-dark-card p-4 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 z-10"
             >
-              <div className="text-3xl">🚀</div>
+              <div className="text-3xl">💻</div>
             </motion.div>
-            
+
+            {/* Available for Work badge — bottom left, outside circle */}
             <motion.div 
               animate={{ y: [10, -10, 10] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              className="absolute bottom-4 -left-4 bg-white dark:bg-dark-card px-4 py-3 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center gap-3"
+              className="absolute -bottom-6 -left-8 bg-white dark:bg-dark-card px-4 py-3 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center gap-3 z-10"
             >
               <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
               <div>
@@ -153,6 +161,7 @@ const Home = () => {
                 <p className="text-sm font-bold text-slate-800 dark:text-white">Available for Work</p>
               </div>
             </motion.div>
+
           </div>
         </motion.div>
       </div>

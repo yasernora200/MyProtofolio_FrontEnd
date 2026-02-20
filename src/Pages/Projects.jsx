@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink, Code2 } from "lucide-react";
@@ -5,66 +6,80 @@ import Section from "../components/Section";
 
 const projects = [
   {
-    title: "Pneumothorax Segmentation Model",
-    description: "Advanced medical imaging system using U-Net architecture to detect pneumothorax in chest X-rays. Features a complete ML pipeline from data preprocessing to model deployment via Flask API.",
-    tech: ["Python", "TensorFlow/Keras", "OpenCV", "Flask", "React", "Docker"],
-    highlights: ["92% Dice Coefficient accuracy", "Processed 12,000+ medical images", "Real-time inference API", "Interactive visualization dashboard"],
-    github: "https://github.com/yasernora200/Pneumothorax-Segmentation_Model",
-    category: "ML",
-    images: ["/assets/portfolio1.jpg", "/assets/portfolio2.jpg"]
-  },
-  {
-    title: "Garbage Classification Web App",
-    description: "Eco-friendly waste management solution using Computer Vision to classify trash into 12 categories. Helps users recycle correctly through an intuitive web interface.",
-    tech: ["PyTorch", "ResNet50", "Flask", "React", "TailwindCSS"],
-    highlights: ["95% classification accuracy", "Mobile-responsive design", "Real-time camera integration", "Educational recycling tips"],
-    github: "https://github.com/yasernora200/Garbage_Classification_Model",
-    category: "ML",
-    images: ["/assets/portfolio2.jpg", "/assets/portfolio3.jpg"]
-  },
-  {
-    title: "AgriSat – NASA Space Apps Challenge",
-    description: "Award-winning agriculture platform leveraging satellite data and IoT sensors to optimize crop yield. Provides actionable insights for farmers through data visualization.",
-    tech: ["React", "Python", "Satellite Imagery API", "IoT Integration", "Leaflet Maps"],
-    highlights: ["Global Space Apps Winner Nominee", "Real-time NDVI vegetation analysis", "IoT sensor data dashboard", "Scalable cloud architecture"],
-    live: "https://agri-sat-nasa-challnege.vercel.app/",
-    github: "https://github.com/yasernora200/AgriSat_NasaChallnege",
-    category: "Data Engineering",
-    images: ["/assets/Agrisat.png", "/assets/agrisat-project.png"]
-  },
-  {
-    title: "Telco Customer Churn Prediction",
-    description: "Comprehensive data analytics dashboard to predict customer churn. Utilizes machine learning models to identify at-risk customers and suggest retention strategies.",
-    tech: ["Python", "Scikit-learn", "Streamlit", "Pandas", "Plotly"],
-    highlights: ["88% Churn prediction accuracy", "Interactive Streamlit dashboard", "Customer segmentation analysis", "Automated reporting pipeline"],
-    github: "https://github.com/yasernora200/ML_DA_Telco_Customer_Churn",
-    category: "ML",
-    images: ["/assets/portfolio3.jpg", "/assets/portfolio4.jpg"]
-  },
-  {
     title: "NoraBuds – Kids E-Commerce Store",
-    description: "Vibrant and playful e-commerce platform designed specifically for children's products. Features a colorful UI, easy navigation, and a secure checkout process.",
-    tech: ["React", "Redux Toolkit", "Stripe API", "Firebase", "Styled Components"],
-    highlights: ["Custom cart & checkout flow", "Playful, animated UI interactions", "Admin dashboard for inventory", "Mobile-first responsive layout"],
+    description: "A complete, high-end e-commerce platform for children's products. Built with a focus on immersive user experience, smooth state management, and secure checkout integration.",
+    tech: ["React", "Redux Toolkit", "Firebase", "Stripe API", "Framer Motion"],
+    highlights: [
+      "Custom cart & persistent checkout flow",
+      "Playful, highly interactive UI animations",
+      "Real-time database integration via Firebase",
+      "Fully responsive mobile-first design"
+    ],
     live: "https://yasernora200.github.io/NoraBuds/",
     github: "https://github.com/yasernora200/NoraBuds",
     category: "Frontend",
-    images: ["https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?q=80&w=1972&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "/assets/portfolio5.png"]
+    images: ["https://images.unsplash.com/photo-1515488764276-beab7607c1e6?q=80&w=1000&auto=format&fit=crop"] 
   },
   {
-    title: "Product List – Modern UI",
-    description: "Sleek and minimalist product listing application showcasing advanced React patterns and state management. optimized for performance and user experience.",
+    title: "AgriSat – NASA Space Apps",
+    description: "Award-winning dashboard visualizing complex satellite data. Engineered the frontend to handle real-time geospatial mapping and interactive data charts.",
+    tech: ["React", "Leaflet.js", "Recharts", "GeoJSON", "TailwindCSS"],
+    highlights: [
+      "Global Space Apps Winner Nominee",
+      "Interactive mapping & spatial data layers",
+      "Real-time NDVI vegetation analysis charts",
+      "Optimized for high-performance data rendering"
+    ],
+    live: "https://agri-sat-nasa-challnege.vercel.app/",
+    github: "https://github.com/yasernora200/AgriSat_NasaChallnege",
+    category: "Web Apps",
+    images: ["https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop"]
+  },
+  {
+    title: "Medical Imaging UI Dashboard",
+    description: "A professional medical interface designed for X-ray analysis visualization. Focused on rendering AI-driven segmentation results into an intuitive UI.",
+    tech: ["React", "Context API", "Axios", "Framer Motion", "TailwindCSS"],
+    highlights: [
+      "Real-time AI inference visualization",
+      "Interactive image upload & processing flow",
+      "Clean, accessibility-focused medical design",
+      "Seamless integration with RESTful APIs"
+    ],
+    github: "https://github.com/yasernora200/Pneumothorax-Segmentation_Model",
+    category: "Web Apps",
+    images: ["https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000&auto=format&fit=crop"]
+  },
+  {
+    title: "Modern Product Catalog",
+    description: "A sleek, performance-optimized product listing application showcasing advanced React patterns and modular component architecture.",
     tech: ["React", "TailwindCSS", "Framer Motion", "Context API"],
-    highlights: ["Filter & Sort functionality", "Smooth layout transitions", "Dark/Light mode support", "Optimized asset loading"],
+    highlights: [
+      "Advanced search & multi-level filtering",
+      "Smooth layout transitions & micro-interactions",
+      "Optimized asset loading & image handling",
+      "Dynamic Dark/Light mode implementation"
+    ],
     github: "https://github.com/yasernora200/Product_list_react_tailwind_project",
     category: "Frontend",
-    images: ["/assets/portfolio5.png", "/assets/portfolio6.jpg"]
+    images: ["https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1000&auto=format&fit=crop"]
   },
+  {
+    title: "Eco-Waste Classifier UI",
+    description: "A web-based waste management tool using computer vision. Developed the frontend to provide instant visual feedback and camera integration.",
+    tech: ["React", "Webcam.js", "TailwindCSS", "Flask"],
+    highlights: [
+      "Live camera stream & capture integration",
+      "Dynamic UI updates based on ML results",
+      "Responsive layout for on-the-go scanning",
+      "Interactive educational components"
+    ],
+    github: "https://github.com/yasernora200/Garbage_Classification_Model",
+    category: "Web Apps",
+    images: ["https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?q=80&w=1000&auto=format&fit=crop"]
+  }
 ];
 
 const ProjectCard = ({ project }) => {
-  const [currentImage, setCurrentImage] = useState(0);
-
   return (
     <motion.div
       layout
@@ -74,28 +89,20 @@ const ProjectCard = ({ project }) => {
       transition={{ duration: 0.3 }}
       className="group relative bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-800 hover:shadow-xl hover:border-primary/50 transition-all flex flex-col h-full"
     >
-      {/* Image Gallery for Projects that have it */}
-      {project.images && project.images.length > 0 && (
-        <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-900 group-hover:h-52 transition-all duration-300">
-           <img 
-             src={project.images[currentImage]} 
-             alt={project.title} 
-             className="w-full h-full object-cover"
-           />
-           {/* Simple slide indicators if multiple images */}
-           {project.images.length > 1 && (
-             <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-1">
-               {project.images.map((_, idx) => (
-                 <button 
-                   key={idx}
-                   onClick={(e) => { e.stopPropagation(); setCurrentImage(idx); }}
-                   className={`w-2 h-2 rounded-full transition-colors ${currentImage === idx ? "bg-white" : "bg-white/50"}`}
-                 />
-               ))}
-             </div>
-           )}
-        </div>
-      )}
+      <div className="relative h-52 overflow-hidden bg-slate-100 dark:bg-slate-900">
+        <img 
+          src={project.images[0]} 
+          alt={project.title} 
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000"; }}
+        />
+        {/* Badge for Demo projects */}
+        {project.live && (
+          <div className="absolute top-3 right-3 bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">
+            Live Demo
+          </div>
+        )}
+      </div>
 
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex justify-between items-start mb-4">
@@ -104,12 +111,12 @@ const ProjectCard = ({ project }) => {
           </div>
           <div className="flex gap-2">
             {project.github && (
-              <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors text-slate-500 hover:text-primary">
+              <a href={project.github} target="_blank" rel="noopener noreferrer" title="View Code" className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors text-slate-500 hover:text-primary">
                 <Github size={20} />
               </a>
             )}
             {project.live && (
-              <a href={project.live} target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors text-slate-500 hover:text-primary">
+              <a href={project.live} target="_blank" rel="noopener noreferrer" title="Live Demo" className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors text-slate-500 hover:text-primary">
                 <ExternalLink size={20} />
               </a>
             )}
@@ -117,18 +124,16 @@ const ProjectCard = ({ project }) => {
         </div>
 
         <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white group-hover:text-primary transition-colors">{project.title}</h3>
-        <p className="text-slate-500 dark:text-slate-400 mb-4 text-sm flex-grow line-clamp-3 hover:line-clamp-none transition-all">{project.description}</p>
+        <p className="text-slate-500 dark:text-slate-400 mb-4 text-sm flex-grow line-clamp-3">{project.description}</p>
         
         <div className="space-y-4 mt-auto">
-          {project.highlights && (
-             <ul className="space-y-1 mb-4">
-               {project.highlights.map((h, i) => (
-                 <li key={i} className="text-xs text-slate-600 dark:text-slate-300 flex items-start gap-2">
-                   <span className="text-secondary mt-0.5">▹</span> {h}
-                 </li>
-               ))}
-             </ul>
-          )}
+          <ul className="space-y-1 mb-4">
+            {project.highlights.map((h, i) => (
+              <li key={i} className="text-xs text-slate-600 dark:text-slate-300 flex items-start gap-2">
+                <span className="text-secondary mt-0.5">▹</span> {h}
+              </li>
+            ))}
+          </ul>
           
           <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-100 dark:border-slate-800">
             {project.tech.map((t, i) => (
@@ -145,7 +150,7 @@ const ProjectCard = ({ project }) => {
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
-  const categories = ["All", "ML", "Data Engineering", "Frontend"];
+  const categories = ["All", "Frontend", "Web Apps"];
 
   const filteredProjects = filter === "All" 
     ? projects 
@@ -156,7 +161,7 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">Featured Projects</h2>
-          <p className="text-slate-500 dark:text-slate-400">Selected work showcasing my skills in AI, Data, and Frontend.</p>
+          <p className="text-slate-500 dark:text-slate-400">A collection of web applications focusing on performance, UI, and functionality.</p>
           
           <div className="flex flex-wrap justify-center gap-3 mt-8">
             {categories.map((cat) => (
@@ -176,7 +181,7 @@ const Projects = () => {
         </div>
 
         <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence>
+          <AnimatePresence mode="wait">
             {filteredProjects.map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
