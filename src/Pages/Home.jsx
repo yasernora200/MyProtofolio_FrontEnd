@@ -52,7 +52,7 @@ const Home = () => {
           >
             <p className="text-slate-500 dark:text-slate-400 font-medium text-lg mb-2">Hello, I'm</p>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight mb-4">
-              <span className="text-primary">Nourhan Yasser</span>
+              <span className="text-primary">Nourhan Yaser Gouda</span>
             </h1>
             
             <div className="h-8 mb-6 flex items-center">
