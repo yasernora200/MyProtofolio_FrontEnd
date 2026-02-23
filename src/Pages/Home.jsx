@@ -3,7 +3,7 @@ import { Link } from "react-scroll";
 import { ArrowRight, Download, Mail, Github, Linkedin } from "lucide-react";
 import { Button } from "../components/Button";
 import { useState, useEffect } from "react";
-import profileImg from "/assets/professNora.png";
+const profileImg = `${import.meta.env.BASE_URL}assets/professNora.png`;
 
 
 const TypeWriter = ({ text, delay, infinite }) => {

@@ -5,7 +5,7 @@ const Buttons = () => {
 <div className="flex gap-4 justify-center my-5">
  
   <a
-    href="/assets/cv.pdf" 
+    href={`${import.meta.env.BASE_URL}assets/cv.pdf`} 
     download
     className="
       border-2 border-[#c03fd7] text-[#c03fd7] font-semibold
