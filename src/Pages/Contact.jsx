@@ -1,15 +1,57 @@
 import Section from "../components/Section";
 import { Button } from "../components/Button";
-import { Send, Mail, MapPin, Phone } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Send, Mail, MapPin, Phone, CheckCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
 
 const Contact = () => {
+  const formRef = useRef();
+  const [showToast, setShowToast] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    emailjs
+      .sendForm("service_8wpb5nr", "template_3fksdlf", formRef.current, {
+        publicKey: "LDo284KqRAnyY0cQi",
+      })
+      .then(
+        () => {
+          setIsSending(false);
+          setShowToast(true);
+          e.target.reset();
+          setTimeout(() => setShowToast(false), 3000);
+        },
+        (error) => {
+          setIsSending(false);
+          alert("❌ Error sending message: " + error.text);
+        }
+      );
+  };
+
   return (
     <Section id="contact">
+      {/* Success Toast */}
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: -50, x: "50%" }}
+            animate={{ opacity: 1, y: 0, x: "50%" }}
+            exit={{ opacity: 0, y: -50, x: "50%" }}
+            className="fixed top-24 right-1/2 z-50 bg-gradient-to-r from-primary to-secondary text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 font-semibold"
+          >
+            <CheckCircle className="text-white" /> Message sent successfully!
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
         <div>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Let's Connect</h2>
           <p className="text-slate-500 dark:text-slate-400 mb-8 text-lg">
-            I'm currently looking for new opportunities in Data Engineering and Frontend Development. 
+            I'm currently looking for new opportunities in Frontend Development. 
             Whether you have a question or just want to say hi, I'll try my best to get back to you!
           </p>
           
@@ -20,8 +62,8 @@ const Contact = () => {
               </div>
               <div>
                 <p className="text-sm text-slate-400">Email</p>
-                <a href="mailto:yasernora@200gmail.com" className="font-medium hover:text-primary transition-colors">
-                  yasernora@200gmail.com
+                <a href="mailto:ny4546295@gmail.com" className="font-medium hover:text-primary transition-colors">
+                  ny4546295@gmail.com
                 </a>
               </div>
             </div>
@@ -49,29 +91,13 @@ const Contact = () => {
         </div>
         
         <div className="bg-white dark:bg-dark-card p-8 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-800">
-          <form className="space-y-4" onSubmit={(e) => {
-            e.preventDefault();
-            const btn = e.target.querySelector('button');
-            const originalText = btn.innerHTML;
-            btn.disabled = true;
-            btn.innerHTML = `<span class="animate-spin inline-block mr-2">⟳</span> Sending...`;
-            
-            setTimeout(() => {
-              btn.innerHTML = `Message Sent! ✨`;
-              btn.classList.add('bg-green-500', 'border-green-500');
-              e.target.reset();
-              setTimeout(() => {
-                btn.disabled = false;
-                btn.innerHTML = originalText;
-                btn.classList.remove('bg-green-500', 'border-green-500');
-              }, 3000);
-            }, 1500);
-          }}>
+          <form ref={formRef} className="space-y-4" onSubmit={sendEmail}>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Name</label>
                 <input 
                   required
+                  name="name"
                   type="text" 
                   placeholder="Your Name"
                   className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-dark-bg border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -81,6 +107,7 @@ const Contact = () => {
                 <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
                 <input 
                   required
+                  name="email"
                   type="email" 
                   placeholder="your@email.com"
                   className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-dark-bg border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
@@ -92,14 +119,26 @@ const Contact = () => {
               <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Message</label>
               <textarea 
                 required
+                name="message"
                 rows={4}
                 placeholder="How can I help you?"
                 className="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-dark-bg border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none transition-all"
               />
             </div>
             
-            <Button className="w-full flex justify-center items-center gap-2 transition-all duration-300">
-              Send Message <Send size={18} />
+            <Button 
+              disabled={isSending}
+              className="w-full flex justify-center items-center gap-2 transition-all duration-300"
+            >
+              {isSending ? (
+                <>
+                  <span className="animate-spin inline-block mr-2">⟳</span> Sending...
+                </>
+              ) : (
+                <>
+                  Send Message <Send size={18} />
+                </>
+              )}
             </Button>
           </form>
         </div>
@@ -109,3 +148,7 @@ const Contact = () => {
 };
 
 export default Contact;
+
+
+
+

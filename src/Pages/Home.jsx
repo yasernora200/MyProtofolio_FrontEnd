@@ -77,7 +77,7 @@ const Home = () => {
                 </Button>
               </Link>
               
-              <a href="/assets/cv.pdf" download>
+              <a href="https://drive.google.com/file/d/17K384_f6mjngrkBHKnuJLqfRW2INHD1s/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="flex items-center gap-2">
                   Download CV <Download size={18} />
                 </Button>
@@ -97,7 +97,7 @@ const Home = () => {
               <a href="https://www.linkedin.com/in/norhanyaser/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors hover:scale-110 transform duration-200">
                 <Linkedin size={24} />
               </a>
-              <a href="mailto:yasernora@200gmail.com" className="text-slate-400 hover:text-primary transition-colors hover:scale-110 transform duration-200">
+              <a href="mailto:yasernora200@gmail.com" className="text-slate-400 hover:text-primary transition-colors hover:scale-110 transform duration-200">
                 <Mail size={24} />
               </a>
             </div>
@@ -132,7 +132,6 @@ const Home = () => {
 
             {/* Circular image container */}
             <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
-              <div className="absolute inset-4 bg-gradient-to-tr from-primary to-secondary rounded-full opacity-20 blur-2xl animate-pulse-slow"></div>
               <img 
                 src={profileImg} 
                 alt="Nourhan Yasser" 
